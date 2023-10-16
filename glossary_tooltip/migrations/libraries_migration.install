@@ -1,0 +1,33 @@
+/**
+ * Implements hook_install().
+ */
+function libraries_migration_install() {
+  // Define the schema for the custom_table.
+  $schema['libraries_table'] = [
+    'description' => 'Table for storing custom words.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique ID for the word.',
+      ],
+      'word_name' => [
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+        'description' => 'Word name.',
+      ],
+      'description' => [
+        'type' => 'text',
+        'not null' => TRUE,
+        'description' => 'Word description.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  // Create the custom_table.
+  foreach ($schema as $table => $definition) {
+    db_create_table($table, $definition);
+  }
+}

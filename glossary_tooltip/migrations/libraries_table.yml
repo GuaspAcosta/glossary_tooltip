@@ -1,0 +1,16 @@
+id: librarie_table
+label: 'Librarie Table Migration'
+migration_group: default
+source:
+  plugin: librarie_table
+destination:
+  plugin: entity:libraries_table
+process:
+  id: id
+  word_name: word_name
+  description: description
+migration_dependencies:
+  enforced:
+    module:
+      - libraries_table
+

@@ -1,0 +1,7 @@
+name: 'glossary_tooltip'
+type: module
+description: 'A custom module for Drupal.'
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - drupal:config
